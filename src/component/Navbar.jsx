@@ -549,7 +549,7 @@ export default function Navbar() {
                                     <p className='text-[12px] font-normal'>Any week <span className='mx-[10px]'>·</span> Add guest</p>
                                 </div>
                             </div>
-                            <span onClick={() => setfilter(true)} className='p-[10px] border-[1px] border-gray-700 rounded-[100%]'>{icons.filter}</span>
+                            <span onClick={() => setfilter(false)} className='p-[10px] border-[1px] border-gray-700 rounded-[100%]'>{icons.filter}</span>
 
                         </div>
                         {modalnav ?
