@@ -15,7 +15,7 @@ export default function Category() {
     const [isAtEnd, setIsAtEnd] = useState(false);
     const [activeclas, setActiveclas] = useState(0);
     const [toggle, settoggle] = useState(false)
-        localStorage.setItem("ctg_id", catagoryid)
+    localStorage.setItem("ctg_id", catagoryid)
     const swich = () => {
         settoggle(!toggle);
     };
@@ -127,97 +127,16 @@ export default function Category() {
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <li onClick={() => handleactiveclas(0)} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
-                                <img src={rasm} alt="" className='w-[25px] m-auto' />
-                                <p>island</p>
-                            </li>
-                        </SwiperSlide>
-
+                        {categories.map((element, value) => (
+                            <SwiperSlide>
+                                <li key={value} onClick={() => handleactiveclas()} className={activeclas === 0 ? 'text-black font-medium opacity-100 flex-col text-center items-center border-b-[3px] border-black pb-[10px] text-[14px]' : 'text-[14px] hover:outline-none text-gray-700 flex-col text-center items-center opacity-60 hover:opacity-100 hover:font-medium pb-[5px] hover:border-b-[3px] border-gray-400'}>
+                                    <div onClick={() => setcatagoryid(element.id)} className="grid">
+                                        <img src={element.image} alt="" className='w-[30px] m-auto' />
+                                        <p>{element.title}</p>
+                                    </div>
+                                </li>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </div>
                 <div className="lg:w-[29%] w-full flex items-center lg:gap-[20px]">

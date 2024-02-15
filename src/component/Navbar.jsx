@@ -21,7 +21,7 @@ const countries = [
 ];
 
 export default function Navbar() {
-    const { islogin, setislogin, setmodalcalendar, scrolled, setScrolled } = useContext(Contexts)
+    const { islogin, setislogin, setmodalcalendar, scrolled, setScrolled, setfilter } = useContext(Contexts)
     const [language, setLanguage] = useState(false);
     const [month, setmonth] = useState(false);
     const [countrysearch, setCountrysearch] = useState(false);
@@ -168,6 +168,18 @@ export default function Navbar() {
         setCount2(0)
         setCount3(0)
         setModalguest(true)
+    }
+    const clearallnav = () => {
+        setCount(0)
+        setCount1(0)
+        setCount2(0)
+        setCount3(0)
+        setActiveIndex(0)
+        setselectnav(0)
+        setdataclick(0)
+        setmodalcalendar(false)
+        setdayclick('Weekend')
+        setmonth('Yanvar')
     }
     // console.log(islogin);
 
@@ -537,7 +549,7 @@ export default function Navbar() {
                                     <p className='text-[12px] font-normal'>Any week <span className='mx-[10px]'>·</span> Add guest</p>
                                 </div>
                             </div>
-                            <span className='p-[10px] border-[1px] border-gray-700 rounded-[100%]'>{icons.filter}</span>
+                            <span onClick={() => setfilter(true)} className='p-[10px] border-[1px] border-gray-700 rounded-[100%]'>{icons.filter}</span>
 
                         </div>
                         {modalnav ?
@@ -550,27 +562,27 @@ export default function Navbar() {
                                             <li onClick={() => handleItemClick(1)} className={activeIndex === 1 ? 'text-black font-medium overflow-hidden border-b-[1px] border-black pb-[5px]' : ' text-gray-700 pb-[6px]'}>Experiences</li>
                                         </ul>
                                     </div>
-                                    <div className="grid gap-[20px] mt-[20px]">
+                                    <div className="grid gap-[20px] mt-[20px] overflow-x-hidden">
                                         <div onClick={() => handleselectnav(0)} className="flex items-center justify-between p-[15px] shadow-xl rounded-[15px] bg-white">
 
-                                            {selelctnav === 0 ? <div className=" w-full">
+                                            {selelctnav === 0 ? <div className="w-full">
                                                 <h2 className='text-[22px] font-semibold'>Where to?</h2>
                                                 <form className=" w-full relative my-[15px]">
                                                     <span className=' absolute top-[50%] left-[10px] translate-y-[-50%] scale-75'>{icons.searchblack}</span>
                                                     <input type="text" placeholder='Search destinations' className='py-[15px] px-[20px] pl-[50px] rounded-2xl border-[1px] border-gray-600 w-full' />
 
                                                 </form>
-                                                <div className="flex overflow-hidden justify-between gap-[10px] w-full">
+                                                <div className="flex justify-between gap-[10px] w-full overflow-y-hidden">
                                                     <div className="text-start">
-                                                        <img src="" alt="" className='w-[100px] h-[100px] bg-gray-400 rounded-[20px]' />
+                                                        <img src="" alt="" className='max-w-[100px] min-w-[90px] h-[100px] bg-gray-400 rounded-[20px]' />
                                                         <h2 className='text-[16px] text-black ml-[5px] mt-[5px]'>moldavia</h2>
                                                     </div>
                                                     <div className="text-start">
-                                                        <img src="" alt="" className='w-[100px] h-[100px] bg-gray-400 rounded-[20px]' />
+                                                        <img src="" alt="" className='max-w-[100px] min-w-[90px] h-[100px] bg-gray-400 rounded-[20px]' />
                                                         <h2 className='text-[16px] text-black ml-[5px] mt-[5px]'>moldavia</h2>
                                                     </div>
                                                     <div className="text-start">
-                                                        <img src="" alt="" className='w-[100px] h-[100px] bg-gray-400 rounded-[20px]' />
+                                                        <img src="" alt="" className='max-w-[100px] min-w-[90px] h-[100px] bg-gray-400 rounded-[20px]' />
                                                         <h2 className='text-[16px] text-black ml-[5px] mt-[5px]'>moldavia</h2>
                                                     </div>
                                                 </div>
@@ -582,7 +594,7 @@ export default function Navbar() {
                                         </div>
                                         <div onClick={() => handleselectnav(1)} className="flex items-center justify-between shadow-xl rounded-[15px] bg-white overflow-y-scroll">
 
-                                            {selelctnav === 1 ? <div className="relative w-full">
+                                            {selelctnav === 1 ? <div className="w-full bg-white">
                                                 <h2 className='text-[22px] font-semibold mb-[10px] p-[10px]'>When's your trip?</h2>
                                                 <div className="p-[5px] rounded-[30px] gap-3 bg-gray-200 text-center flex justify-between m-auto mx-[10px]">
                                                     <button onClick={() => handledata(0)} className={dataclick === 0 ? 'bg-white rounded-[30px] py-[5px] px-[15px] font-semibold w-[30%]' : 'rounded-[30px] w-[30%] py-[5px] px-[15px] hover:bg-gray-300 font-semibold'}>Dates</button>
@@ -597,22 +609,92 @@ export default function Navbar() {
                                                         <DateCalendar />
                                                     </LocalizationProvider>
                                                 </div>}
-                                                <div className="flex overflow-x-scroll overflow-hidden py-[5px] border-y-[1px] w-full border-gray-400 items-center mt-[30px] gap-[10px] justify-between absolute bottom-[18%] bg-white whitespace-nowrap p-0">
+                                                {dataclick === 0 ? <div className="flex overflow-x-scroll overflow-hidden py-[5px] border-y-[1px] w-full border-gray-400 items-center mt-[30px] gap-[10px] justify-between absolute bottom-[80px] bg-white whitespace-nowrap p-0">
                                                     <button onClick={() => handledays(0)} className={activeday === 0 ? 'text-[12px] font-light border-[2px] rounded-[15px] px-[8px] py-[5px] border-gray-900' : 'text-[12px] font-light border-[1px] rounded-[15px] px-[8px] py-[5px] border-gray-500'}>Exact dates</button>
                                                     <button onClick={() => handledays(1)} className={activeday === 1 ? 'text-[12px] font-light border-[2px] rounded-[15px] px-[8px] py-[5px] border-gray-900' : 'text-[12px] font-light border-[1px] rounded-[15px] px-[8px] py-[5px] border-gray-500'}>+1 days</button>
                                                     <button onClick={() => handledays(2)} className={activeday === 2 ? 'text-[12px] font-light border-[2px] rounded-[15px] px-[8px] py-[5px] border-gray-900' : 'text-[12px] font-light border-[1px] rounded-[15px] px-[8px] py-[5px] border-gray-500'}>+2 days</button>
                                                     <button onClick={() => handledays(3)} className={activeday === 3 ? 'text-[12px] font-light border-[2px] rounded-[15px] px-[8px] py-[5px] border-gray-900' : 'text-[12px] font-light border-[1px] rounded-[15px] px-[8px] py-[5px] border-gray-500'}>+3 days</button>
                                                     <button onClick={() => handledays(4)} className={activeday === 4 ? 'text-[12px] font-light border-[2px] rounded-[15px] px-[8px] py-[5px] border-gray-900' : 'text-[12px] font-light border-[1px] rounded-[15px] px-[8px] py-[5px] border-gray-500'}>+7 days</button>
-                                                </div>
+                                                </div> : null}
                                                 {dataclick === 1 && <div className='grid justify-center '>
                                                     <h2 className='text-[20px] font-semibold my-[23px]'>When’s your trip?       </h2>
-                                                    <div className="p-[150px] bg-gray-200 rounded-full w-[300px] h-[300px] items-center flex justify-center">
+                                                    <div className="p-[150px] bg-gray-200 rounded-full w-[250px] h-[250px] items-center flex justify-center">
                                                         <div className="p-[100px] bg-white rounded-full w-[200px]">
 
                                                         </div>
                                                     </div>
                                                     <button className='text-[18px] text-gray-700 mt-[20px]'>Starting April 25, <span onClick={() => setmodalcalendar(true)} className=' underline'>Edit</span></button>
                                                 </div>}
+                                                {dataclick === 2 && <div className=" my-[10px] p-[10px] bg-white">
+                                                    <h2 className='text-[18px] font-medium'>How long would you like to stay?<span>{dayclick}</span></h2>
+                                                    <div className="flex gap-[15px] py-[20px] justify-start">
+                                                        <button onClick={() => setdayclick('Weekend')} className={dayclick === 'Weekend' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[6px] px-[10px]' : 'bg-white border-[1px] border-gray-200 hover:border-black py-[6px] px-[10px] rounded-[20px]'}>Weekend</button>
+                                                        <button onClick={() => setdayclick('Week')} className={dayclick === 'Week' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[6px] px-[10px]' : 'bg-white border-[1px] border-gray-200 hover:border-black py-[6px] px-[10px] rounded-[20px]'}>Week</button>
+                                                        <button onClick={() => setdayclick('Month')} className={dayclick === 'Month' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[6px] px-[10px]' : 'bg-white border-[1px] border-gray-200 hover:border-black py-[6px] px-[10px] rounded-[20px]'}>Month</button>
+                                                    </div>
+                                                    <h2 className='text-[18px] font-medium'>How long would you like to stay?<span>{month}</span></h2>
+                                                    <div className="flex mt-[20px]">
+                                                        <Swiper
+                                                            spaceBetween={3}
+                                                            slidesPerView={3}
+                                                            className='h-full w-full'
+                                                            grabCursor={true}
+                                                            navigation={{
+                                                                prevEl: ".swiper-button-prev",
+                                                                nextEl: ".swiper-button-next",
+                                                            }}
+
+                                                            modules={[Pagination, Navigation]}
+                                                            onSlideChange={() => console.log('slide change')}
+                                                            onSwiper={(swiper) => console.log(swiper)}
+                                                        >
+
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Yanvar')} className={month === 'Yanvar' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'Yanvar' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Yanvar</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Fevral')} className={month === 'Fevral' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'Fevral' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Fevral</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Mart')} className={month === 'Mart' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'Mart' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Mart</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Aprel')} className={month === 'Aprel' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'Aprel' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Aprel</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('May')} className={month === 'May' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'May' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>May</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Iyun')} className={month === 'Iyun' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black rounded-[20px]'}>
+                                                                    {month === 'Iyun' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Iyun</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                            <SwiperSlide>
+                                                                <div onClick={() => setmonth('Iyul')} className={month === 'Iyul' ? 'bg-gray-100 border-[2px] rounded-[20px] border-black py-[20px] w-[90px] text-center' : 'bg-white border-[1px] py-[20px] w-[90px] text-center  border-gray-400 hover:border-black py-[10px] rounded-[20px]'}>
+                                                                    {month === 'Iyul' ? <img src={calendarone} alt="" className='w-[35px] m-auto' /> : <img src={calendartwo} alt="" className='w-[35px] m-auto' />}
+                                                                    <h2 className='text-[18px] font-medium'>Iyul</h2>
+                                                                </div>
+                                                            </SwiperSlide>
+                                                        </Swiper>
+                                                    </div>
+                                                </div>
+                                                }
                                             </div> : <div className="flex items-center justify-between w-full p-[15px]">
                                                 <h2 className='text-[16px] text-gray-700'>When</h2>
                                                 <p className='text-[16px] text-black'>Add dates</p>
@@ -681,7 +763,7 @@ export default function Navbar() {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between py-[6px] absolute bottom-0 bg-white border-t-[1px] border-gray-300 w-full rounded-b-[20px] px-[20px] z-50">
-                                    <button className='py-[10px] text-[14px] font-semibold hover:bg-slate-100 rounded-[15px] underline px-[10px]'>Cleear all</button>
+                                    <button onClick={() => clearallnav()} className='py-[10px] text-[14px] font-semibold hover:bg-slate-100 rounded-[15px] underline px-[10px]'>Cleear all</button>
                                     {selelctnav === 1 ? <button onClick={() => setselectnav(0)} className='bg-gray-900 hover:bg-black text-white font-semibold text-[14px] py-[10px] px-[20px] rounded-[15px] flex items-center'>Next</button>
                                         : <button className='bg-gray-900 hover:bg-black text-white font-semibold text-[14px] py-[10px] px-[10px] rounded-[15px] flex items-center'> <span className='mr-[10px]'>{icons.search}</span>Search</button>
                                     }                                </div>

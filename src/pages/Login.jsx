@@ -17,7 +17,7 @@ export default function Login() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    auth_token: codeResponse.tokenId
+                    auth_token: codeResponse.credential
                 })
             })
                 .then(response => {
